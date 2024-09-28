@@ -1,0 +1,407 @@
+.meal-planner-main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.meal-planner-hero-section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    background-image: url('../../assets//main-bg.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+.meal-planner-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); 
+    z-index: 1; 
+}
+
+.meal-planner-hero-section h3{
+    z-index: 2;
+    font-size: 40px;
+    line-height: 60px;
+    font-weight: 700;
+    text-align: center;
+} 
+.meal-planner-hero-section p {
+    z-index: 2; 
+    color: black; 
+    position: relative;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.meal-planner-containt-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 30px;
+    padding: 30px 0;
+    background-color: #FAE8F7;
+
+}
+
+.all-meal-containt-heading-container{
+    display: flex;
+    width: 100%;
+    height: max-content;
+    /* padding: 0px 300px; */
+    align-items: center;
+    justify-content: center;
+}
+
+.all-meals-nav{
+    display: flex;
+    width: 100%;
+    height: max-content;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 30px 220px;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999991111;
+}
+
+.tabs{
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 500;
+    border-bottom: 4px solid #fff;
+    padding: 5px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tabs.active-tab{
+    border-bottom: 4px solid #004370;
+}
+
+.toggle-nav{
+    display: none;
+    background-color: #fff;
+    padding: 15px 20px;
+    position: sticky;
+    z-index: 99999911111;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* .toggle-nav{
+    display: none;
+} */
+
+.toggler-and-add-to-week-btn{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-dropdown{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 99999999111111111;
+    position: absolute;
+    top: 0;
+    background-color: #fff;
+    left: 0;
+    gap: 30px;
+}
+
+.drop-down-tab{
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 600;
+    border-bottom: 4px solid #fff;
+    padding: 5px 30px;
+}
+
+.drop-down-tab.active-drop-down-tab{
+    border-bottom: 4px solid #004370;
+}
+
+.nav-dropdown.show-drop-down{
+    display: flex;
+}
+
+.toggler-and-add-to-week-btn p{
+    color: #004370;
+    cursor: pointer;
+}
+
+.nav-dropdown button{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+.toggler-and-add-to-week-btn button{
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #004370;
+    color: #fff;
+    border: 1px solid #004370;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.all-meals-nav button{
+    background-color: #004370;
+    padding: 10px 20px;
+    border: 1px solid #004370;
+    color: #fff;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.all-meals-nav button:hover{
+    background-color: #fff;
+    color: #004370;
+    border: 1px solid #004370;
+}
+
+.all-meals-cards-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 50px;
+    padding: 50px 120px;
+}
+
+/* Modal */
+.add-meal-to-week-modal{
+    display: none;
+    padding: 50px;
+    background-color: orange;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.add-meal-to-week-modal.show-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #fff;
+    /* border-radius: 10px; */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+    z-index: 1000;
+    padding: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .close-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+  }
+  
+  .modal.show {
+    transform: translate(-50%, -50%) scale(1); /* Full size when showing */
+    width: 40%;
+    height: 250px;
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal select, .modal button {
+    margin: 10px;
+  }
+  
+.modal-week-select{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-week-select h3{
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #F2F2F2;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.modal-content button{
+    width: 140px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #004370;
+    border: 1px solid #004370;
+    cursor: pointer;
+}
+
+
+/* Nav and modal media query till 780px screen */
+@media only screen and (max-width: 780px){
+    .all-meals-nav{
+        display: none;
+    }
+
+    .toggle-nav{
+        display: flex;
+    }
+    .modal{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: auto;
+        height: 100%;
+        gap: 30px;
+        z-index: 9999991111111;
+    }
+    .modal.show{
+        width: 80%;
+        height: auto;
+    }
+    .modal-week-select{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Nav Query from 1024 to 1200 */
+@media only screen and (min-width: 1025px) and (max-width: 1200px){
+    .all-meals-cards-container{
+        padding: 50px 30px;
+    }
+    .all-meals-nav{
+        padding: 30px 120px;
+    }
+}
+
+@media only screen and (min-width: 781px) and (max-width: 1024px){
+    .all-meals-cards-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 20px 10px;
+    }
+    .all-meals-nav{
+        padding: 30px 60px;
+    }
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 780px){
+    .all-meals-cards-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 20px 20px;
+    }
+}
+
+
+@media only screen and (max-width: 480px){
+    .all-meals-cards-container{
+        display: grid;
+        grid-template-columns: auto;
+        gap: 10px;
+        padding: 20px 20px;
+    }
+
+    .meal-planner-hero-section h3{
+        z-index: 2;
+        font-size: 35px;
+        line-height: 32px;
+        font-weight: 700;
+        text-align: center;
+    } 
+    .meal-planner-hero-section p {
+        z-index: 2; 
+        color: black; 
+        position: relative;
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+        text-align: center;
+    }
+}

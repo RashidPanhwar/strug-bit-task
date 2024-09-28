@@ -1,0 +1,147 @@
+.meal-card{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.meal-card:hover{
+    transform: scale(1.02);
+}
+
+.meal-card.active-meal-card{
+    border: 1px solid #004370;
+}
+
+.delete-meal-btn{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: red;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    top: 30px;
+    left: 20px;
+    z-index: 999;
+}
+
+.meal-image{
+    width: auto;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.meal-name{
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+}
+
+.meal-description{
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 300;
+    text-align: justify;
+}
+
+.meal-rating-section{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.meal-rating-section span{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.meal-rating-section span h3{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+}
+
+.meal-rating-section span p{
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+}
+
+.meal-rating-section span h3 p{
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 400;
+}
+
+
+@media only screen and (min-width: 781px) and (max-width: 1024px){
+    .meal-rating-section{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .meal-name {
+        font-size: 15px;
+        line-height: 22px;
+        font-weight: 700;
+    }
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 780px){
+    .meal-card{
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .delete-meal-btn{
+        top: 15px;
+        left: 15px;
+    }
+    .meal-rating-section{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .meal-name {
+        font-size: 11px;
+        line-height: 12px;
+        font-weight: 700;
+    }
+
+    .meal-description{
+        font-size: 8px;
+        line-height: 10px;
+        font-weight: 500;
+    }
+
+    .meal-rating-section span h3{
+        font-size: 10px;
+    }
+
+    .meal-rating-section span p {
+        font-size: 10px;
+    }
+}
